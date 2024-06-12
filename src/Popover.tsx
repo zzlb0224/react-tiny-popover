@@ -179,7 +179,7 @@ const PopoverInternal = forwardRef(
     }, [positionPopover]);
 
     useEffect(() => {
-      const body = parentElement.ownerDocument.body;
+      const body = parentElement.ownerDocument.body || parentElement;
       body.addEventListener('click', handleOnClickOutside, clickOutsideCapture);
       body.addEventListener('contextmenu', handleOnClickOutside, clickOutsideCapture);
       body.addEventListener('resize', handleWindowResize);

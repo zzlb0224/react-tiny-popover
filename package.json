@@ -1,6 +1,6 @@
 {
-  "name": "react-tiny-popover",
-  "version": "8.0.4",
+  "name": "react-tiny-popover-forked",
+  "version": "8.0.4-beta3",
   "description": "A simple and highly customizable popover react higher order component with no other dependencies!",
   "keywords": [
     "react",
@@ -25,9 +25,11 @@
   "scripts": {
     "build": "tsc -p . && pnpm run copy-types",
     "clean": "rm -rf dist/",
-    "copy-types": "cp src/index.d.ts dist/index.d.ts",
+    "copy-types-linux": "cp src/index.d.ts dist/index.d.ts",
+    "copy-types": "copy /Y src\\index.d.ts dist\\index.d.ts",
     "start-demo": "cd docs && pnpm run start",
-    "watch": "tsc-watch -p . --onSuccess 'pnpm run copy-types'"
+    "watch": "tsc-watch -p . --onSuccess 'pnpm run copy-types'",
+    "lint": "prettier --write . && eslint . --fix"
   },
   "devDependencies": {
     "@types/react": "^18.2.21",
@@ -50,5 +52,8 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "cp": "^0.2.0"
   }
 }
